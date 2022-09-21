@@ -2,12 +2,12 @@ Pod::Spec.new do |mqttc|
 	mqttc.name         = "MQTTClient_BaiTu"
 	mqttc.version      = "0.15.4"
 	mqttc.summary      = "iOS, macOS and tvOS native ObjectiveC MQTT Client Framework"
-	mqttc.homepage     = "https://github.com/novastone-media/MQTT-Client-Framework"
+	mqttc.homepage     = "https://github.com/BaiTu-iOS/MQTT-Client-Framework.git"
 	mqttc.license      = { :type => "EPLv1", :file => "LICENSE" }
 	mqttc.author       = { "novastonemedia" => "ios@novastonemedia.com" }
 	mqttc.source       = {
-		:git => "https://github.com/novastone-media/MQTT-Client-Framework.git",
-		:tag => "0.15.2",
+		:git => "https://github.com/BaiTu-iOS/MQTT-Client-Framework.git",
+		:tag => mqttc.version.to_s,
 		:submodules => true
 	}
 
