@@ -1,6 +1,6 @@
 Pod::Spec.new do |mqttc|
-	mqttc.name         = "MQTTClient"
-	mqttc.version      = "0.15.3"
+	mqttc.name         = "MQTTClient_BaiTu"
+	mqttc.version      = "0.15.4"
 	mqttc.summary      = "iOS, macOS and tvOS native ObjectiveC MQTT Client Framework"
 	mqttc.homepage     = "https://github.com/novastone-media/MQTT-Client-Framework"
 	mqttc.license      = { :type => "EPLv1", :file => "LICENSE" }
@@ -21,6 +21,12 @@ Pod::Spec.new do |mqttc|
 	mqttc.subspec 'Core' do |core|
 		core.dependency 'MQTTClient/Min'
 		core.dependency 'MQTTClient/Manager'
+	end
+
+	mqttc.subspec 'BaiTu' do |ss|
+		ss.dependency 'MQTTClient/MinL'
+  		ss.dependency 'MQTTClient/ManagerL'
+  		ss.dependency 'MQTTClient/WebsocketL'
 	end
 
 	mqttc.subspec 'Min' do |min|
