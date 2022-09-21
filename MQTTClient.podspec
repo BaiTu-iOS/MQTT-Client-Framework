@@ -1,5 +1,5 @@
 Pod::Spec.new do |mqttc|
-	mqttc.name         = "MQTTClient-BaiTu"
+	mqttc.name         = "MQTTClient"
 	mqttc.version      = "0.15.4"
 	mqttc.summary      = "iOS, macOS and tvOS native ObjectiveC MQTT Client Framework"
 	mqttc.homepage     = "https://github.com/BaiTu-iOS/MQTT-Client-Framework.git"
@@ -12,10 +12,9 @@ Pod::Spec.new do |mqttc|
 	}
 
 	mqttc.requires_arc = true
-	mqttc.platform = :ios, "6.1", :osx, "10.10", :tvos, "9.0"
+	mqttc.platform = :ios, "6.1", :osx, "10.10"
 	mqttc.ios.deployment_target = "6.1"
 	mqttc.osx.deployment_target = "10.10"
-	# mqttc.tvos.deployment_target = "9.0"
 	mqttc.default_subspec = 'Core'
 
 	mqttc.subspec 'Core' do |core|
