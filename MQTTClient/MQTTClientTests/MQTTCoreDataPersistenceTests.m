@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <MQTTClient/MQTTCoreDataPersistence.h>
+#import "MQTTCoreDataPersistence.h>
 
 @interface MQTTCoreDataPersistenceTests : XCTestCase
 

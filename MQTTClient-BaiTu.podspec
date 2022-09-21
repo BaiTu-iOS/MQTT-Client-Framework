@@ -1,5 +1,5 @@
 Pod::Spec.new do |mqttc|
-	mqttc.name         = "MQTTClient"
+	mqttc.name         = "MQTTClient-BaiTu"
 	mqttc.version      = "0.15.4"
 	mqttc.summary      = "iOS, macOS and tvOS native ObjectiveC MQTT Client Framework"
 	mqttc.homepage     = "https://github.com/BaiTu-iOS/MQTT-Client-Framework.git"
@@ -12,20 +12,21 @@ Pod::Spec.new do |mqttc|
 	}
 
 	mqttc.requires_arc = true
-	mqttc.platform = :ios, "6.1", :osx, "10.10"
-	mqttc.ios.deployment_target = "6.1"
+	mqttc.platform = :ios, "11.0", :osx, "10.10"
+	mqttc.ios.deployment_target = "11.0"
 	mqttc.osx.deployment_target = "10.10"
 	mqttc.default_subspec = 'BaiTu'
+	mqttc.static_framework = true
 
 	mqttc.subspec 'Core' do |core|
-		core.dependency 'MQTTClient/Min'
-		core.dependency 'MQTTClient/Manager'
+		core.dependency 'MQTTClient-BaiTu/Min'
+		core.dependency 'MQTTClient-BaiTu/Manager'
 	end
 
 	mqttc.subspec 'BaiTu' do |ss|
-		ss.dependency 'MQTTClient/MinL'
-  		ss.dependency 'MQTTClient/ManagerL'
-  		ss.dependency 'MQTTClient/WebsocketL'
+		ss.dependency 'MQTTClient-BaiTu/MinL'
+  		ss.dependency 'MQTTClient-BaiTu/ManagerL'
+  		ss.dependency 'MQTTClient-BaiTu/WebsocketL'
 	end
 
 	mqttc.subspec 'Min' do |min|
@@ -83,21 +84,21 @@ Pod::Spec.new do |mqttc|
 		manager.source_files =	"MQTTClient/MQTTClient/MQTTSessionManager.{h,m}", 
 					"MQTTClient/MQTTClient/ReconnectTimer.{h,m}",
 					"MQTTClient/MQTTClient/ForegroundReconnection.{h,m}"
-		manager.dependency 'MQTTClient/Min'
+		manager.dependency 'MQTTClient-BaiTu/Min'
 	end
 
 	mqttc.subspec 'ManagerL' do |managerl|
 		managerl.source_files =	"MQTTClient/MQTTClient/MQTTSessionManager.{h,m}", 
 					"MQTTClient/MQTTClient/ReconnectTimer.{h,m}", 
 					"MQTTClient/MQTTClient/ForegroundReconnection.{h,m}"
-		managerl.dependency 'MQTTClient/MinL'
+		managerl.dependency 'MQTTClient-BaiTu/MinL'
 		managerl.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'LUMBERJACK=1' }
 	end
 
 	mqttc.subspec 'Websocket' do |ws|
 		ws.source_files = "MQTTClient/MQTTClient/MQTTWebsocketTransport/*.{h,m}"
 		ws.dependency 'SocketRocket'
-		ws.dependency 'MQTTClient/Min'
+		ws.dependency 'MQTTClient-BaiTu/Min'
 		ws.requires_arc = true
 		ws.libraries = "icucore"
 	end
@@ -105,7 +106,7 @@ Pod::Spec.new do |mqttc|
 	mqttc.subspec 'WebsocketL' do |wsl|
 		wsl.source_files = "MQTTClient/MQTTClient/MQTTWebsocketTransport/*.{h,m}"
 		wsl.dependency 'SocketRocket'
-		wsl.dependency 'MQTTClient/MinL'
+		wsl.dependency 'MQTTClient-BaiTu/MinL'
 		wsl.requires_arc = true
 		wsl.libraries = "icucore"
 		wsl.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'LUMBERJACK=1' }
