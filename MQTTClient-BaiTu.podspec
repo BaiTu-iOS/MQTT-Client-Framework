@@ -1,6 +1,6 @@
 Pod::Spec.new do |mqttc|
 	mqttc.name         = "MQTTClient-BaiTu"
-	mqttc.version      = "0.15.4"
+	mqttc.version      = "0.15.5"
 	mqttc.summary      = "iOS, macOS and tvOS native ObjectiveC MQTT Client Framework"
 	mqttc.homepage     = "https://github.com/BaiTu-iOS/MQTT-Client-Framework.git"
 	mqttc.license      = { :type => "EPLv1", :file => "LICENSE" }
@@ -12,8 +12,8 @@ Pod::Spec.new do |mqttc|
 	}
 
 	mqttc.requires_arc = true
-	mqttc.platform = :ios, "11.0", :osx, "10.10"
-	mqttc.ios.deployment_target = "11.0"
+	mqttc.platform = :ios, "10.0", :osx, "10.10"
+	mqttc.ios.deployment_target = "10.0"
 	mqttc.osx.deployment_target = "10.10"
 	mqttc.default_subspec = 'BaiTu'
 	mqttc.static_framework = true
