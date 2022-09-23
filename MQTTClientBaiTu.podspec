@@ -19,14 +19,14 @@ Pod::Spec.new do |mqttc|
 	mqttc.static_framework = true
 
 	mqttc.subspec 'Core' do |core|
-		core.dependency 'MQTTClient-BaiTu/Min'
-		core.dependency 'MQTTClient-BaiTu/Manager'
+		core.dependency 'MQTTClientBaiTu/Min'
+		core.dependency 'MQTTClientBaiTu/Manager'
 	end
 
 	mqttc.subspec 'BaiTu' do |ss|
-		ss.dependency 'MQTTClient-BaiTu/MinL'
-  		ss.dependency 'MQTTClient-BaiTu/ManagerL'
-  		ss.dependency 'MQTTClient-BaiTu/WebsocketL'
+		ss.dependency 'MQTTClientBaiTu/MinL'
+  		ss.dependency 'MQTTClientBaiTu/ManagerL'
+  		ss.dependency 'MQTTClientBaiTu/WebsocketL'
 	end
 
 	mqttc.subspec 'Min' do |min|
@@ -84,21 +84,21 @@ Pod::Spec.new do |mqttc|
 		manager.source_files =	"MQTTClient/MQTTClient/MQTTSessionManager.{h,m}", 
 					"MQTTClient/MQTTClient/ReconnectTimer.{h,m}",
 					"MQTTClient/MQTTClient/ForegroundReconnection.{h,m}"
-		manager.dependency 'MQTTClient-BaiTu/Min'
+		manager.dependency 'MQTTClientBaiTu/Min'
 	end
 
 	mqttc.subspec 'ManagerL' do |managerl|
 		managerl.source_files =	"MQTTClient/MQTTClient/MQTTSessionManager.{h,m}", 
 					"MQTTClient/MQTTClient/ReconnectTimer.{h,m}", 
 					"MQTTClient/MQTTClient/ForegroundReconnection.{h,m}"
-		managerl.dependency 'MQTTClient-BaiTu/MinL'
+		managerl.dependency 'MQTTClientBaiTu/MinL'
 		managerl.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'LUMBERJACK=1' }
 	end
 
 	mqttc.subspec 'Websocket' do |ws|
 		ws.source_files = "MQTTClient/MQTTClient/MQTTWebsocketTransport/*.{h,m}"
 		ws.dependency 'SocketRocket'
-		ws.dependency 'MQTTClient-BaiTu/Min'
+		ws.dependency 'MQTTClientBaiTu/Min'
 		ws.requires_arc = true
 		ws.libraries = "icucore"
 	end
@@ -106,7 +106,7 @@ Pod::Spec.new do |mqttc|
 	mqttc.subspec 'WebsocketL' do |wsl|
 		wsl.source_files = "MQTTClient/MQTTClient/MQTTWebsocketTransport/*.{h,m}"
 		wsl.dependency 'SocketRocket'
-		wsl.dependency 'MQTTClient-BaiTu/MinL'
+		wsl.dependency 'MQTTClientBaiTu/MinL'
 		wsl.requires_arc = true
 		wsl.libraries = "icucore"
 		wsl.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'LUMBERJACK=1' }
