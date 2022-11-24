@@ -14,6 +14,7 @@
 }
 
 @property (nonatomic) NSMutableArray<NSInputStream *> *streams;
+@property (readonly) void *QueueIdentityKey;
 
 @end
 
@@ -31,6 +32,10 @@
     [self close];
 }
 
+- (void *)QueueIdentityKey {
+    return QueueIdentityKey;
+}
+
 - (void)setQueue:(dispatch_queue_t)queue {
     _queue = queue;
     
@@ -45,7 +50,8 @@
     //
     // So we're just going to use the memory address of an ivar.
     
-    dispatch_queue_set_specific(_queue, &QueueIdentityKey, (__bridge void *)_queue, NULL);
+    QueueIdentityKey = &QueueIdentityKey;
+    dispatch_queue_set_specific(_queue, QueueIdentityKey, QueueIdentityKey, NULL);
 }
 
 - (void)decodeMessage:(NSData *)data {
@@ -83,13 +89,14 @@
     // We need to make sure that we are closing streams on their queue
     // Otherwise, we end up with race condition where delegate is deallocated
     // but still used by run loop event
-    if (self.queue != dispatch_get_specific(&QueueIdentityKey)) {
-        dispatch_sync(self.queue, ^{
-            [self internalClose];
-        });
-    } else {
+    dispatch_block_t block = ^{
         [self internalClose];
-    }
+    };
+    
+    if (dispatch_get_specific(QueueIdentityKey))
+        block();
+    else
+        dispatch_sync(_queue, block);
 }
 
 - (void)stream:(NSStream *)sender handleEvent:(NSStreamEvent)eventCode {
