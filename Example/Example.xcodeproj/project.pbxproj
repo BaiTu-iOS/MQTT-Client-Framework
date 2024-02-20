@@ -185,7 +185,7 @@
 				TargetAttributes = {
 					84B65C661CF39DA50089B477 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = H38R9864G8;
+						DevelopmentTeam = K2W5F344SC;
 						LastSwiftMigration = 0800;
 					};
 					C7373041229D5DD300E974EA = {
@@ -463,7 +463,7 @@
 			baseConfigurationReference = B8BF9AF72C228AE763E90C5D /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H38R9864G8;
+				DEVELOPMENT_TEAM = K2W5F344SC;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.novastonemedia.example.MQTTClient;
@@ -476,7 +476,7 @@
 			baseConfigurationReference = 453AC593E6FED68E1746588C /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H38R9864G8;
+				DEVELOPMENT_TEAM = K2W5F344SC;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.novastonemedia.example.MQTTClient;
