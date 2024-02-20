@@ -57,7 +57,8 @@
 }
 
 - (void)decodeMessage:(NSData *)data {
-    if (data == nil) return;
+    if (data == nil) return; 
+    if (![data isKindOfClass:NSData.class]) return;
     NSInputStream *stream = [NSInputStream inputStreamWithData:data];
     CFReadStreamRef readStream = (__bridge CFReadStreamRef)stream;
     CFReadStreamSetDispatchQueue(readStream, self.queue);
